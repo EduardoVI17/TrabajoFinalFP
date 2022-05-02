@@ -1,0 +1,5 @@
+//metodo que calcula el procentaje total de produccion
+    public static double PorcentajeTotal(int produccion[], int Cedulado[]) {
+        double porcentaje = TotalProducido(produccion) / Totalcedulado(Cedulado);
+        return Math.round(porcentaje * 10000) / 100.0;
+    }
