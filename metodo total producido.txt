@@ -1,0 +1,8 @@
+ //metodo para calcular el total producido
+    public static double TotalProducido(int produccion[]) {
+        double suma = 0;
+        for (int i = 0; i < produccion.length; i++) {
+            suma = suma + produccion[i];//148 340 460
+        }
+        return suma;
+    }

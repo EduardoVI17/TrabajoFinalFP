@@ -1,0 +1,8 @@
+//metodo para calcular el total cedulado
+    public static double Totalcedulado(int Cedulado[]) {
+        double suma = 0;
+        for (int i = 0; i < Cedulado.length; i++) {
+            suma = suma + Cedulado[i];
+        }
+        return suma;
+    }
