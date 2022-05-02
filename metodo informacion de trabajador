@@ -1,0 +1,11 @@
+//metodo que nos detalla la informacion del trabajador
+    public static void Informacion(String operarios[],String maquina [],int dni[],int produccion[],int NumeroDni)
+    {
+        for(int i=0;i< dni.length;i++)
+        {
+            if(NumeroDni==dni[i])
+            {
+                System.out.println("El Operario "+operarios[i]+" con DNI N° "+dni[i]+ " laboró en la maquina "+maquina[i]+ " cuya produción fue de: "+produccion[i]+ " llantas");
+            }
+        }
+    }
