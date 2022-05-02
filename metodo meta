@@ -1,0 +1,7 @@
+//metodo que nos indica si se llegó a la meta total
+    public static boolean Meta(int produccion[], int Cedulado[]) {
+        if (PorcentajeTotal(produccion, Cedulado) >= 100)
+            return true;
+        else
+            return false;
+    }
