@@ -1,0 +1,17 @@
+public static void main(String[] args) {
+        String operarios[] = {"Juan", "Miguel", "Leandro", "Pedro", "Joaquin", "Kevin", "Eduardo", "Yurich", "Erick", "Javier"};
+        String maquina[] = {"M1", "M2", "M3", "M4", "M5", "M6", "M7", "M8", "M9", "M10"};
+        int dni[] = {48454765, 48475152, 42168065, 73382848, 65892574, 52478621, 46983217, 75698348, 21398657, 65745321};
+        int produccion[] = {148, 192, 120, 126, 115, 118, 100, 211, 119, 132};
+        int Cedulado[] = {154, 192, 148, 120, 126, 118, 109, 209, 130, 150};//cedulado es la meta que debe producirse en cada maquina
+
+        int NumeroDni = 73382848; //ingreso de dato
+        
+        System.out.println("Total producido: " + (int) TotalProducido(produccion) + " llantas");
+        System.out.println("Total cedulado: " + (int) Totalcedulado(Cedulado) + " llantas");
+        System.out.println("Porcentaje total producido: " + PorcentajeTotal(produccion, Cedulado) + " %");
+        Incentivo(produccion, Cedulado);
+         System.out.println("Se llegó a la meta?: " +Meta(produccion, Cedulado));
+        Informacion(operarios, maquina, dni, produccion, NumeroDni);
+        System.out.println("Eficiencia del trabajador "+NumeroDni+": "+ EficienciaxTrabajador(produccion,Cedulado,dni,NumeroDni)+" %");
+    }
