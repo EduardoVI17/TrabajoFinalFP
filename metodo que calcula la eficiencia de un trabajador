@@ -1,0 +1,11 @@
+//metodo para calcular la eficiencia por trabajador
+    public static double EficienciaxTrabajador(int produccion[],int cedulado[],int dni[], int NumeroDni)
+    {
+        double calculador=1;
+        for(int i=0;i< dni.length;i++)
+        {
+            if(NumeroDni==dni[i])
+                calculador=(double)produccion[i]/cedulado[i];
+        }
+        return Math.round(calculador*10000)/100.0;
+    }
