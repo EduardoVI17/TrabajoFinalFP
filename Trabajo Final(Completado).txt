@@ -1,0 +1,82 @@
+ //metodo principal
+    public static void main(String[] args) {
+        String operarios[] = {"Juan", "Miguel", "Leandro", "Pedro", "Joaquin", "Kevin", "Eduardo", "Yurich", "Erick", "Javier"};
+        String maquina[] = {"M1", "M2", "M3", "M4", "M5", "M6", "M7", "M8", "M9", "M10"};
+        int dni[] = {48454765, 48475152, 42168065, 73382848, 65892574, 52478621, 46983217, 75698348, 21398657, 65745321};
+        int produccion[] = {148, 192, 120, 126, 115, 118, 100, 211, 119, 132};
+        int Cedulado[] = {154, 192, 148, 120, 126, 118, 109, 209, 130, 150};//cedulado es la meta que debe producirse en cada maquina
+
+        int NumeroDni = 73382848; //ingreso de dato
+        
+        System.out.println("Total producido: " + (int) TotalProducido(produccion) + " llantas");
+        System.out.println("Total cedulado: " + (int) Totalcedulado(Cedulado) + " llantas");
+        System.out.println("Porcentaje total producido: " + PorcentajeTotal(produccion, Cedulado) + " %");
+        Incentivo(produccion, Cedulado);
+         System.out.println("Se llegó a la meta?: " +Meta(produccion, Cedulado));
+        Informacion(operarios, maquina, dni, produccion, NumeroDni);
+        System.out.println("Eficiencia del trabajador "+NumeroDni+": "+ EficienciaxTrabajador(produccion,Cedulado,dni,NumeroDni)+" %");
+    }
+
+    //metodo para calcular el total producido
+    public static double TotalProducido(int produccion[]) {
+        double suma = 0;
+        for (int i = 0; i < produccion.length; i++) {
+            suma = suma + produccion[i];//148 340 460
+        }
+        return suma;
+    }
+
+    //metodo para calcular el total cedulado
+    public static double Totalcedulado(int Cedulado[]) {
+        double suma = 0;
+        for (int i = 0; i < Cedulado.length; i++) {
+            suma = suma + Cedulado[i];
+        }
+        return suma;
+    }
+
+    //metodo que calcula el procentaje total de produccion
+    public static double PorcentajeTotal(int produccion[], int Cedulado[]) {
+        double porcentaje = TotalProducido(produccion) / Totalcedulado(Cedulado);
+        return Math.round(porcentaje * 10000) / 100.0;
+    }
+
+    //metodo que muestra el incentivo
+    public static void Incentivo(int produccion[], int Cedulado[]) {
+        if (PorcentajeTotal(produccion, Cedulado) < 85)
+            System.out.println("No se aplica incentivo");
+        if (PorcentajeTotal(produccion, Cedulado) > 85 && PorcentajeTotal(produccion, Cedulado) < 95)
+            System.out.println("Se aplica incentivo al 15%");
+        if (PorcentajeTotal(produccion, Cedulado) > 95)
+            System.out.println("Se aplica incentivo al 25%");
+    }
+
+    //metodo que nos indica si se llegó a la meta total
+    public static boolean Meta(int produccion[], int Cedulado[]) {
+        if (PorcentajeTotal(produccion, Cedulado) >= 100)
+            return true;
+        else
+            return false;
+    }
+    //metodo que nos detalla la informacion del trabajador
+    public static void Informacion(String operarios[],String maquina [],int dni[],int produccion[],int NumeroDni)
+    {
+        for(int i=0;i< dni.length;i++)
+        {
+            if(NumeroDni==dni[i])
+            {
+                System.out.println("El Operario "+operarios[i]+" con DNI N° "+dni[i]+ " laboró en la maquina "+maquina[i]+ " cuya produción fue de: "+produccion[i]+ " llantas");
+            }
+        }
+    }
+    //metodo para calcular la eficiencia por trabajador
+    public static double EficienciaxTrabajador(int produccion[],int cedulado[],int dni[], int NumeroDni)
+    {
+        double calculador=1;
+        for(int i=0;i< dni.length;i++)
+        {
+            if(NumeroDni==dni[i])
+                calculador=(double)produccion[i]/cedulado[i];
+        }
+        return Math.round(calculador*10000)/100.0;
+    }
